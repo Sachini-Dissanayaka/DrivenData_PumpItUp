@@ -15,11 +15,11 @@ The data for the training has 59,400 rows and 40 columns without the label that 
 
 You can find the fully generated profile report in the _profiling.ipynb_ file which was generated using the pandas_profiling library.
 
-you can find the **best scored (0.8234)** model in the _ML_PumpItUp_BestScore.ipynb_ file. But it is not contaiing all the techniques that can be used in ML.
+you can find the **best scored (0.8234)** model in the _ML_PumpItUp_BestScore.ipynb_ file. But it is not containg the techniques that had been used for analysis.
 
-All other EDA techniques that can be categorized as data collection, data cleaning, data preprocessing, and data visualization are available in the _ML_PumpItUp_Initial.ipynb_ file. And also you can find different encoding techniques and normalization techniques in this file.
+All EDA techniques that can be categorized as data collection, data cleaning, data preprocessing, and data visualization are available in the **_ML_PumpItUp_Initial.ipynb_** file. And also you can find different encoding techniques,normalization techniques, feature imprtance, Principle Component Analysis(PCA) techniques, SHAP and Partial Dependency Plots (PDP) in this file.
 
-<!-- Here onwards I will explain some techniques that had been used in the _ML_PumpItUp_Initial.ipynb_ file which had been 0.8222 -->
+Here onwards I will explain some techniques that had been used in the _ML_PumpItUp_Initial.ipynb_ file which had been 0.8222
 
 The target variable has three possible outcomes:
 * Functional
