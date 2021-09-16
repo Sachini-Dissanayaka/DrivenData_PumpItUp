@@ -25,6 +25,7 @@ The target variable has three possible outcomes:
 * Functional
 * Non-functional
 * Functional but it needs to repair
+
 The feature amount_tsh is highly skewed (γ1 = 57.808) and has 41639 / 70.1% zeros that are why the log had been used to smooth it.
 
 The year, month, and date were extracted from the feature date_recorded, and then the date_recorde had been dropped. 
