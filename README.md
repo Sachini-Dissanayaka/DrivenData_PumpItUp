@@ -5,7 +5,7 @@
 This project is based on the competition Driven Data® had published about water pumps, in Tanzania, a large country that suffers from access to good quality water. The main project idea is to identify which pumps are functional, which need some repairs, and which don't work at all. 
 The metric used for this competition is “Accuracy” for calculating the precision of the model.
 
-The result of the project was uploaded in order to score the predictions, which generated a response that is within 6% of the global participant results in this competition. The result was great because it had been 0.8219, comparing with the first place 0.8294. It is a very good result considering the difference between these results.
+The result of the project was uploaded in order to score the predictions, which generated a response that is within 4% of the global participant results in this competition. The result was great because it had been **0.8234**, comparing with the first place 0.8294. It is a very good result considering the difference between these results.
 
 **Dataset description**
 
@@ -13,9 +13,13 @@ The data for the training has 59,400 rows and 40 columns without the label that 
 
 **Exploratory Data Analysis (EDA)**
 
-You can find the fully generated profile report in the profiling.ipynb file which was generated using the pandas_profiling library.
+You can find the fully generated profile report in the _profiling.ipynb_ file which was generated using the pandas_profiling library.
 
-Other EDA techniques that can be categorized as data collection, data cleaning, data preprocessing, and data visualization are available in the ML_PumpItUp_Initial.ipynb file.
+you can find the **best scored (0.8234)** model in the _ML_PumpItUp_BestScore.ipynb_ file. But it is not contaiing all the techniques that can be used in ML.
+
+All other EDA techniques that can be categorized as data collection, data cleaning, data preprocessing, and data visualization are available in the _ML_PumpItUp_Initial.ipynb_ file. And also you can find different encoding techniques and normalization techniques in this file.
+
+<!-- Here onwards I will explain some techniques that had been used in the _ML_PumpItUp_Initial.ipynb_ file which had been 0.8222 -->
 
 The target variable has three possible outcomes:
 * Functional
@@ -57,11 +61,18 @@ Waterpoint_all = waterpoint_type+ waterpoint_type_group
 
 Then the features extraction_type, extraction_type_group, extraction_type_class, management, management_group, payment, payment_type, water_quality, quality_group, quantity, quantity_group, source, source_type, waterpoint_type, and waterpoint_type_group had been dropped.
 
+**Normalization**
+
+* The feature population had been normalized using mean normalization
+* The feature amt had been normalized using min max normalization
+
 **Encoding**
 
 * The features basin, scheme_management, Management_all, Payment_all, Quality_all, Quantity_all, Source_all, Waterpoint_all had been encoded usin One-Hot Encode technique
 
-* The features public_meeting, permit, and source_class had been encoded using the Ordinal Encoding technique
+* The features public_meeting and permit had been encoded using the Ordinal Encoding technique
+
+* The feature source_class is encoded using target encoding
 
 * The features funder, installer, subvillage, region, lga, ward, and Extraction_all had been encoded using the Binary Encoding technique
 
@@ -72,7 +83,7 @@ You can find a feature importance graph that can be used as a post-processing te
 
 **Modeling**
 
-Accuracy table which contains the best accuracies that were estimated while training the model
+Accuracy table which contains the best accuracies that were estimated while **training** the model
 
 | Model                  | Accuracy |
 |------------------------|----------|
@@ -80,8 +91,12 @@ Accuracy table which contains the best accuracies that were estimated while trai
 | ExtraTreesClassifier   | 0.812    |
 | XGBClassifier          | 0.745    |
 | CatBoostClassifier     | 0.807    |
-| Ensembling             |          |
+| Ensembling             | 0.816    |
+
+Ensembling with Randomforestclassifier and Extratreesclassifier had been used as the model in _ML_PumpItUp_BestScore.ipynb_ file which generated the best score.
 
 The GridSearchCV had been used for hyperparameter tuning.
 
+Go through the code for getting a better idea.
 
+_Happy Coding!_
