@@ -100,4 +100,11 @@ The GridSearchCV had been used for hyperparameter tuning.
 
 Go through the code for getting a better idea.
 
+**Proof of Submission**
+
+![Proof of Submission](https://user-images.githubusercontent.com/47107946/133722866-54e52445-0b0a-42bb-a972-c5dcb9f2bc56.png)
+
+![proof submission best score](https://user-images.githubusercontent.com/47107946/133723719-be2ad7e7-d64e-45d5-9527-cd62f9ff380d.JPG)
+
+
 _Happy Coding!_
