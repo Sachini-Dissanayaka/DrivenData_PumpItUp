@@ -19,7 +19,7 @@ you can find the **best scored (0.8234)** model in the _ML_PumpItUp_BestScore.ip
 
 All EDA techniques that can be categorized as data collection, data cleaning, data preprocessing, and data visualization are available in the **_ML_PumpItUp_Initial.ipynb_** file. And also you can find different encoding techniques,normalization techniques, feature imprtance, Principle Component Analysis(PCA) techniques, SHAP and Partial Dependency Plots (PDP) in this file.
 
-Here onwards I will explain some techniques that had been used in the _ML_PumpItUp_Initial.ipynb_ file which had been 0.8222
+Here onwards I will explain some techniques that had been used in the _ML_PumpItUp_Initial.ipynb_ file which had 0.8228 accuracy
 
 The target variable has three possible outcomes:
 * Functional
@@ -41,6 +41,8 @@ Since the feature recorded_by has a constant value GeoData Consultants Ltd, it h
 The feature wpt_name has a high cardinality which means 37400 distinct values. So the feature wpt_name had been also dropped.
 
 Since the feature construction_year has 34.9% zeros and the feature population has 36% zeros, the zeros in both the features construction_year and population were filled with NaNs.
+
+And also population has outliers which was identified using Box plot visulization.
 
 The missing values in the features funder, installer, subvillage, public_meeting, scheme_management, permit, and construction_year had been filled with their most frequent values. And the missing values in the feature population are filled with its mean.
 
@@ -65,7 +67,7 @@ Then the features extraction_type, extraction_type_group, extraction_type_class,
 **Normalization**
 
 * The feature population had been normalized using mean normalization
-* The feature amt had been normalized using min max normalization
+* The feature amt which had been created by getting log of feature amt_tsh had been normalized using min max normalization
 
 **Encoding**
 
@@ -92,7 +94,7 @@ Accuracy table which contains the best accuracies that were estimated while **tr
 | ExtraTreesClassifier   | 0.812    |
 | XGBClassifier          | 0.745    |
 | CatBoostClassifier     | 0.807    |
-| Ensembling             | 0.816    |
+| Ensembling (rn,etc)    | 0.816    |
 
 Ensembling with Randomforestclassifier and Extratreesclassifier had been used as the model in _ML_PumpItUp_BestScore.ipynb_ file which generated the best score.
 
