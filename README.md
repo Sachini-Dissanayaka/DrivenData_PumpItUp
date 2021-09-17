@@ -19,7 +19,7 @@ you can find the **best scored (0.8234)** model in the _ML_PumpItUp_BestScore.ip
 
 All EDA techniques that can be categorized as data collection, data cleaning, data preprocessing, and data visualization are available in the **_ML_PumpItUp_Initial.ipynb_** file. And also you can find different encoding techniques,normalization techniques, feature imprtance, Principle Component Analysis(PCA) techniques, SHAP and Partial Dependency Plots (PDP) in this file.
 
-Here onwards I will explain some techniques that had been used in the _ML_PumpItUp_Initial.ipynb_ file which had 0.8228 accuracy
+Here onwards I will explain some techniques that had been used in the _ML_PumpItUp_Initial.ipynb_ file which had 0.8230 accuracy
 
 The target variable has three possible outcomes:
 * Functional
@@ -46,6 +46,10 @@ And also population has outliers which was identified using Box plot visulizatio
 
 The missing values in the features funder, installer, subvillage, public_meeting, scheme_management, permit, and construction_year had been filled with their most frequent values. And the missing values in the feature population are filled with its mean.
 
+For feature selection, Mutual Information Plot had been used and identified the features wpt_name, subvilage, ward and scheme_name had higher MI Score and the features recorded_by, permit and num_private had lower MI Score. So the most of these features had been dropped.
+
+And also SelectKBest technique had been used to measure the feature dependencies. The features quantity and quantity_group have high dependency and wpt_name, num_private, basin, subvilage, recorded_by, and scheme_name have lower dependency.
+
 **Following are the creation of new features by mathematical transformation**
 
 Extraction_all = extraction_type+ extraction_type_group + extraction_type_class
@@ -67,7 +71,7 @@ Then the features extraction_type, extraction_type_group, extraction_type_class,
 **Normalization**
 
 * The feature population had been normalized using mean normalization
-* The feature amt which had been created by getting log of feature amt_tsh had been normalized using min max normalization
+* The feature amt had been normalized using min max normalization
 
 **Encoding**
 
@@ -94,13 +98,21 @@ Accuracy table which contains the best accuracies that were estimated while **tr
 | ExtraTreesClassifier   | 0.812    |
 | XGBClassifier          | 0.745    |
 | CatBoostClassifier     | 0.807    |
-| Ensembling (rn,etc)    | 0.816    |
+| Ensembling             | 0.816    |
 
-Ensembling with Randomforestclassifier and Extratreesclassifier had been used as the model in _ML_PumpItUp_BestScore.ipynb_ file which generated the best score.
+Ensembling with Randomforestclassifier and Extratreesclassifier had been used as the model in _ML_PumpItUp_BestScore.ipynb_ file which generated the best score (0.8234).
 
 The GridSearchCV had been used for hyperparameter tuning.
 
 Go through the code for getting a better idea.
+
+**Post Processing**
+
+Feature importance plot, SHAP techniques and Partial Dependency Plots had been used as post processing techniques. The features quantity(mainly dry),longitude, latitude,waterpoint, gps_hight, and construction_year have higher importance according to the feature importance plot.
+Among these features, the features related to quantity (dry) being the most important and amt_tsh feature being the least important according to SHAP evaluation. Higher quantity value has high impact on SHAP value. The feature amt_tsh has very low impact on SHAP value.
+As the construction year coming to recent, the number of repairs is less.
+If the longitude is very low, the number of repairs is higher.
+
 
 **Proof of Submission**
 
